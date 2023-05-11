@@ -29,7 +29,7 @@ def predict():
     print('Prediction Value is',prediction[0])
     output=prediction[0]
 
-    return render_template('index.html',prediction_text='The predicted Sales value is about :  {}'.format(output))
+    return render_template('index.html',prediction_text='The predicted Sales value is about :  {} $'.format(output))
 
     if __name__ == "__main__":
         app.run(debug=True)
