@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS,cross_origin
 import pickle
-import numpy as numpy
+import numpy as np
 
 
 app=Flask(__name__)
@@ -22,14 +22,14 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     '''For rendering results on HTML GUI'''
-    int_features = [int(x) for x in request.form.values()]
-    pre_final_features = [np.array(int_features)]
+    features = [float(x) for x in request.form.values()]
+    pre_final_features = [np.array(features)]
     final_features = scaler.transform(pre_final_features)
     prediction = model.predict(final_features)
     print('Prediction Value is',prediction[0])
     output=prediction[0]
 
-    return render_template('index.html',prediction_text='This user will buy from social network ad {}'.format(output))
+    return render_template('index.html',prediction_text='The predicted Sales value is about :  {}'.format(output))
 
     if __name__ == "__main__":
         app.run(debug=True)
