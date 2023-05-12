@@ -3,9 +3,10 @@ from flask_cors import CORS,cross_origin
 import pickle
 import numpy as np
 
+
 app=Flask(__name__)
-# model = pickle.load(open('xgbmodel.pkl','rb'))
-# scaler = pickle.load(open('scaler.pickle','rb'))
+model = pickle.load(open('xgbmodel.pkl','rb'))
+scaler = pickle.load(open('scaler.pickle','rb'))
 
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app)
@@ -31,6 +32,3 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# Add the following line at the end
-app.config['TEMPLATES_AUTO_RELOAD'] = True
