@@ -5,8 +5,8 @@ import numpy as np
 
 
 app=Flask(__name__)
-model = pickle.load(open('xgbmodel.pkl','rb'))
-scaler = pickle.load(open('scaler.pickle','rb'))
+# model = pickle.load(open('xgbmodel.pkl','rb'))
+# scaler = pickle.load(open('scaler.pickle','rb'))
 
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app)
